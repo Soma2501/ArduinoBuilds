@@ -42,8 +42,8 @@ void Motor::processMotor() //processMotor function is part of class Motor
     }
     myservo.write(servoAngleValDEG);//writes angle to servo
   } 
-  Serial.print("angle: ");
-  Serial.println(servoAngleValDEG);
+  //Serial.print("angle: ");
+  //Serial.println(servoAngleValDEG);
   
 
 }
