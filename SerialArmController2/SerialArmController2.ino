@@ -92,86 +92,8 @@ void loop()
   {
     processAllMotors(); //func decides which motor to use and then processes specific motor
   }
-  if ((millis() % 90)==0)
-  {
-    message();
-  }
-  if ((millis() % 400)==0)  //need delay before clearing and reprinting
-  {
-    msgCond();
-  }
 }
 
-void message()
-{
-  //static char asc = 97;
-
-  lcd.setCursor(cursor, 3);//inputCharAt(column,row)
-  lcd.print(Str.substring(pos,len));
-}
-void msgCond()
-{  
-  lcd.setCursor(0, 3);//inputCharAt(column,row)
-  lcd.print("                    ");
-  if (pos==0 && cursor >0)//(1)start begining of string (pos=0) and print until cursor ends up on left
-  {
-    cursor--;//reduce cursor from 19 to 0
-    len++;//increase len from 0 to 19 to include full sentence and space after    
-  }
-  else if (pos ==Str.length())//start over
-  {
-  cursor = 20;
-  pos = 0;
-  len = 0;
-  }
-  else if (pos<=Str.length() && cursor==0)//at left and len ==11)
-  {
-    pos++;//as len same, will print from pos onward until 
-  }
-  else//once at left, prints out of screen
-  {
-    pos++;//space after line
-    len++;//inc. string to see space
-  }
-}
-/*
-  static int i=0;
-  if (i<=19)
-  {
-    lcd.setCursor(i,2);
-    lcd.print(asc);
-    lcd.setCursor(i-1,2);
-    lcd.print(" ");
-    Serial.println(i);
-  }
-  i++;
-  */  
-/*
-    if (i<=20)
-    {
-      lcd.setCursor(i,2);
-      lcd.print(asc);
-      lcd.setCursor(i-1,2);
-      lcd.print(" ");
-      Serial.println(i);
-      
-      if (i>= 21-inputLength) 
-      {
-        lcd.setCursor(i-20,3);
-        lcd.print(Str);
-        lcd.setCursor(i-20,3);
-        lcd.print(" ");
-      }
-      else
-      {
-        lcd.setCursor(i,3);
-        lcd.print(Str);
-        lcd.setCursor(i-1,3);
-        lcd.print(" ");
-      }
-      i++;
-    }
-    */
 
 
 //in lcd: print ascii char at bottom row and have slide into and out of that row
