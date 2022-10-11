@@ -16,3 +16,8 @@ SerialArmController2: Remote IP Motor Control Panel
 
 SerialArmController3: Remote IP XYZ Motor Control Panel 
 - Features: Inverse Kinematics
+
+Feature Ideas
+- Implement ROS2 and simulate with Gazebo(physics)/rviz(no physics)
+  - Gazebo requires Ubuntu
+- Control System to reduce motion error
